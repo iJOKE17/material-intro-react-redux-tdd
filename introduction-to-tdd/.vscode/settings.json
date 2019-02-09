@@ -1,0 +1,6 @@
+{
+  "standard.autoFixOnSave": false,
+  "eslint.enable": true,
+  "standard.enable": false,
+  "git.ignoreLimitWarning": true
+}
