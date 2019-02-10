@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import Footer from './Footer'
 import VisibleTodoList from '../containers/VisibleTodoList'
 import FilterLinks from '../containers/FilterLinks'
-import { SHOW_ALL, SHOW_COMPLETED, SHOW_ACTIVE } from '../constants/TodoFilters'
 
 const filterLinks = () => (
   <FilterLinks />
