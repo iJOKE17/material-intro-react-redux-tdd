@@ -3,9 +3,9 @@ import { configure, addDecorator } from '@storybook/react';
 
 addDecorator((story) => {
   return (
-    <section className="main">
+    <div className="todo-board">
       {story()}
-    </section>
+    </div>
   )
 })
 

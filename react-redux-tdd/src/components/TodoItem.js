@@ -30,11 +30,6 @@ export default class TodoItem extends Component {
 
   render() {
     const { todo, completeTodo, deleteTodo } = this.props
-    const style = {
-      position: 'relative',
-      fontSize: '24px',
-      borderBottom: '1px solid #ededed'
-    }
     let element
     if (this.state.editing) {
       element = (
@@ -44,7 +39,7 @@ export default class TodoItem extends Component {
       )
     } else {
       element = (
-        <div className="view" style={style}>
+        <div className="view">
           <input className="toggle"
                  type="checkbox"
                  checked={todo.completed}
