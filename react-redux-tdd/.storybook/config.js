@@ -3,11 +3,9 @@ import { configure, addDecorator } from '@storybook/react';
 
 addDecorator((story) => {
   return (
-    <div style={{
-      backgroundColor: 'white'
-    }}>
+    <section className="main">
       {story()}
-    </div>
+    </section>
   )
 })
 

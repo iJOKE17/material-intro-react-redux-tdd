@@ -24,3 +24,21 @@ storiesOf('Footer', module)
       />
     )
   })
+  .add('Without any active and completed items', () => {
+    return (
+      <Footer
+        completedCount={0}
+        activeCount={0}
+        renderFilterLinks={() => <FilterLinks />}
+      />
+    )
+  })
+  .add('Without any active but still have some completed items', () => {
+    return (
+      <Footer
+        completedCount={4}
+        activeCount={0}
+        renderFilterLinks={() => <FilterLinks />}
+      />
+    )
+  })
