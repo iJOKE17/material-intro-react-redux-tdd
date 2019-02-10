@@ -1,4 +1,15 @@
-import { configure } from '@storybook/react';
+import React from 'react'
+import { configure, addDecorator } from '@storybook/react';
+
+addDecorator((story) => {
+  return (
+    <div style={{
+      backgroundColor: 'white'
+    }}>
+      {story()}
+    </div>
+  )
+})
 
 const req = require.context('../src/components', true, /\.stories\.js$/);
 

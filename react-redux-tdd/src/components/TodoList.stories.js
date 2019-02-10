@@ -5,15 +5,6 @@ import { storiesOf } from '@storybook/react';
 import TodoList from './TodoList'
 
 storiesOf('TodoList', module)
-  .addDecorator((story) => {
-    return (
-      <div style={{
-        backgroundColor: 'white'
-      }}>
-        {story()}
-      </div>
-    )
-  })
   .add('Empty', () => {
     const todos = [
     ]

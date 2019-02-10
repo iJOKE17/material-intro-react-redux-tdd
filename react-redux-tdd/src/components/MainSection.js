@@ -2,25 +2,11 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Footer from './Footer'
 import VisibleTodoList from '../containers/VisibleTodoList'
-import FilterLink from '../containers/FilterLink'
+import FilterLinks from '../containers/FilterLinks'
 import { SHOW_ALL, SHOW_COMPLETED, SHOW_ACTIVE } from '../constants/TodoFilters'
 
-const FILTER_TITLES = {
-  [SHOW_ALL]: 'All',
-  [SHOW_ACTIVE]: 'Active',
-  [SHOW_COMPLETED]: 'Completed'
-}
-
 const filterLinks = () => (
-  <ul className="filters">
-    {Object.keys(FILTER_TITLES).map(filter =>
-      <li key={filter}>
-        <FilterLink filter={filter}>
-          {FILTER_TITLES[filter]}
-        </FilterLink>
-      </li>
-    )}
-  </ul>
+  <FilterLinks />
 )
 
 const MainSection = ({ todosCount, completedCount, actions }) =>
