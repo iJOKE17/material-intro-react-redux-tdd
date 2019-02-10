@@ -4,8 +4,11 @@ import MainSection from '../containers/MainSection'
 
 const App = () => (
   <div>
-    <Header />
-    <MainSection />
+    <h1>Todo in React-Redux</h1>
+    <div className='todo-board'>
+      <Header />
+      <MainSection />
+    </div>
   </div>
 )
 
