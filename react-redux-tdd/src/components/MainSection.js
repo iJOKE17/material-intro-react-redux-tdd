@@ -2,12 +2,32 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Footer from './Footer'
 import VisibleTodoList from '../containers/VisibleTodoList'
+import FilterLink from '../containers/FilterLink'
+import { SHOW_ALL, SHOW_COMPLETED, SHOW_ACTIVE } from '../constants/TodoFilters'
+
+const FILTER_TITLES = {
+  [SHOW_ALL]: 'All',
+  [SHOW_ACTIVE]: 'Active',
+  [SHOW_COMPLETED]: 'Completed'
+}
+
+const filterLinks = () => (
+  <ul className="filters">
+    {Object.keys(FILTER_TITLES).map(filter =>
+      <li key={filter}>
+        <FilterLink filter={filter}>
+          {FILTER_TITLES[filter]}
+        </FilterLink>
+      </li>
+    )}
+  </ul>
+)
 
 const MainSection = ({ todosCount, completedCount, actions }) =>
   (
     <section className="main">
       {
-        !!todosCount && 
+        !!todosCount &&
         <span>
           <input
             className="toggle-all"
@@ -25,6 +45,7 @@ const MainSection = ({ todosCount, completedCount, actions }) =>
           completedCount={completedCount}
           activeCount={todosCount - completedCount}
           onClearCompleted={actions.clearCompleted}
+          renderFilterLinks={filterLinks}
         />
       }
     </section>
