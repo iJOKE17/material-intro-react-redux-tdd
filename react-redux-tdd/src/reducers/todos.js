@@ -11,8 +11,14 @@ const initialState = [
   {
     text: 'Use Redux',
     completed: false,
-    id: 0
-  }
+    id: 0,
+  },
+  {
+    text: 'Learn React',
+    completed: false,
+    id: 1,
+    important: true
+  },
 ]
 
 export default function todos(state = initialState, action) {
