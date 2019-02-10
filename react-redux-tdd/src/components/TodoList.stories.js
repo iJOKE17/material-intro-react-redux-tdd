@@ -1,9 +1,15 @@
 import React from 'react';
 import 'todomvc-app-css/index.css'
 import { storiesOf } from '@storybook/react';
+import { action } from '@storybook/addon-actions';
 
 import TodoList from './TodoList'
 
+const actions = {
+  editTodo: action('EditTodo'),
+  deleteTodo: action('deleteTodo'),
+  completeTodo: action('completeTodo')
+}
 storiesOf('TodoList', module)
   .add('Empty', () => {
     const todos = [
@@ -11,6 +17,7 @@ storiesOf('TodoList', module)
     return (
       <TodoList
         filteredTodos={todos}
+        actions={actions}
       />
     )
   })
@@ -35,6 +42,7 @@ storiesOf('TodoList', module)
     return (
       <TodoList
         filteredTodos={todos}
+        actions={actions}
       />
     )
   })
@@ -59,6 +67,7 @@ storiesOf('TodoList', module)
     return (
       <TodoList
         filteredTodos={todos}
+        actions={actions}
       />
     )
   })

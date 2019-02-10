@@ -1,9 +1,17 @@
 import React from 'react';
 import 'todomvc-app-css/index.css'
 import { storiesOf } from '@storybook/react';
+import { action } from '@storybook/addon-actions'
 import { FilterLinks } from '../containers/FilterLinks'
 
 import Footer from './Footer'
+
+const renderFilterLinks = () => (
+  <FilterLinks
+    onSetVisiblityFilter={action('setVisiblityFilter')}
+    visiblilityFilter={''}
+  />
+)
 
 storiesOf('Footer', module)
   .add('With complete and active count', () => {
@@ -11,7 +19,8 @@ storiesOf('Footer', module)
       <Footer
         completedCount={3}
         activeCount={5}
-        renderFilterLinks={() => null}
+        renderFilterLinks={renderFilterLinks}
+        onClearCompleted={action('clearCompleted')}
       />
     )
   })
@@ -20,7 +29,8 @@ storiesOf('Footer', module)
       <Footer
         completedCount={3}
         activeCount={5}
-        renderFilterLinks={() => <FilterLinks />}
+        renderFilterLinks={renderFilterLinks}
+        onClearCompleted={action('clearCompleted')}
       />
     )
   })
@@ -29,7 +39,8 @@ storiesOf('Footer', module)
       <Footer
         completedCount={0}
         activeCount={0}
-        renderFilterLinks={() => <FilterLinks />}
+        renderFilterLinks={renderFilterLinks}
+        onClearCompleted={action('clearCompleted')}
       />
     )
   })
@@ -39,6 +50,7 @@ storiesOf('Footer', module)
         completedCount={4}
         activeCount={0}
         renderFilterLinks={() => <FilterLinks />}
+        onClearCompleted={action('clearCompleted')}
       />
     )
   })

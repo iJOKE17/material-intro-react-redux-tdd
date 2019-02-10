@@ -1,13 +1,13 @@
 import React from 'react';
 import 'todomvc-app-css/index.css'
 import { storiesOf } from '@storybook/react';
-import { FilterLinks } from '../containers/FilterLinks'
+import { action } from '@storybook/addon-actions';
 
 import Header from './Header'
 
 storiesOf('Header', module)
   .add('Simple Header', () => {
     return (
-      <Header />
+      <Header addTodo={action('addTodo')}/>
     )
   })
