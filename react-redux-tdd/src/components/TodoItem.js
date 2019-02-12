@@ -33,7 +33,8 @@ export default class TodoItem extends Component {
     let element
     if (this.state.editing) {
       element = (
-        <TodoTextInput text={todo.text}
+        <TodoTextInput className='ax-todo-text-input'
+                       text={todo.text}
                        editing={this.state.editing}
                        onSave={(text) => this.handleSave(todo.id, text)} />
       )
@@ -44,7 +45,7 @@ export default class TodoItem extends Component {
                  type="checkbox"
                  checked={todo.completed}
                  onChange={() => completeTodo(todo.id)} />
-          <label onDoubleClick={this.handleDoubleClick}>
+          <label className='ax-todo-label' onDoubleClick={this.handleDoubleClick}>
             {todo.text}
           </label>
           <button className="destroy"
