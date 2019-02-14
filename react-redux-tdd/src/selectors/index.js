@@ -1,11 +1,24 @@
 import { SHOW_ALL, SHOW_COMPLETED, SHOW_ACTIVE } from '../constants/TodoFilters'
+import { InputModes } from '../reducers/inputMode';
 
 const selectVisibilityFilter = state => state.visibilityFilter
 const selectAllTodos = state => state.todos
+const selectFilterTodos = state => {
+  const todos = selectAllTodos(state)
+  const inputMode = selectInputMode(state)
+  if (inputMode === InputModes.ADD) {
+    return todos
+  }
+  const searchText = selectSearchText(state)
+  if (!searchText) {
+    return todos
+  }
+  return todos.filter(t => t.text.startsWith(searchText))
+}
 
 export const selectVisibleTodos = (state) => {
   const visibilityFilter = selectVisibilityFilter(state)
-  const todos = selectAllTodos(state)
+  const todos = selectFilterTodos(state)
   switch (visibilityFilter) {
     case SHOW_ALL:
       return todos
@@ -24,3 +37,4 @@ export const selectCompletedTodoCount = (state) => {
 }
 
 export const selectInputMode = state => state.inputMode
+export const selectSearchText = state => state.search.text
