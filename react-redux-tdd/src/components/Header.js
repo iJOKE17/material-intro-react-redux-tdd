@@ -7,13 +7,14 @@ const getPlaceHolder = mode => {
   return mode === InputModes.ADD ? 'What needs to be done?' : 'Search for?'
 }
 
-const Header = ({ addTodo, inputMode }) => (
+const Header = ({ addTodo, inputMode, search }) => (
   <header className="header">
     <TodoTextInput
-      newTodo
+      head
       onSave={(text) => {
         if (text.length !== 0) {
-          addTodo(text)
+          const action = inputMode === InputModes.ADD ? addTodo : search
+          action(text)
         }
       }}
       placeholder={getPlaceHolder(inputMode)}

@@ -8,7 +8,7 @@ export default class TodoTextInput extends Component {
     text: PropTypes.string,
     placeholder: PropTypes.string,
     editing: PropTypes.bool,
-    newTodo: PropTypes.bool
+    head: PropTypes.bool
   }
 
   state = {
@@ -19,7 +19,7 @@ export default class TodoTextInput extends Component {
     const text = e.target.value.trim()
     if (e.which === 13) {
       this.props.onSave(text)
-      if (this.props.newTodo) {
+      if (this.props.head) {
         this.setState({ text: '' })
       }
     }
@@ -30,7 +30,7 @@ export default class TodoTextInput extends Component {
   }
 
   handleBlur = e => {
-    if (!this.props.newTodo) {
+    if (!this.props.head) {
       this.props.onSave(e.target.value)
     }
   }
@@ -40,7 +40,7 @@ export default class TodoTextInput extends Component {
       <input className={
         classnames({
           edit: this.props.editing,
-          'new-todo': this.props.newTodo
+          'new-todo': this.props.head
         })}
         type="text"
         placeholder={this.props.placeholder}
