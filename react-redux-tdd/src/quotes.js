@@ -1,4 +1,4 @@
-function getRandomQuotes () {
+export function getRandomQuotes () {
   const quotes = [
     'React is awesome',
     'MobX is a state management library',
