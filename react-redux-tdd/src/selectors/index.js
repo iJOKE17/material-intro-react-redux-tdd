@@ -4,7 +4,7 @@ import { SHOW_ALL, SHOW_COMPLETED, SHOW_ACTIVE } from '../constants/TodoFilters'
 const getVisibilityFilter = state => state.visibilityFilter
 const getTodos = state => state.todos
 
-export const getVisibleTodos = createSelector(
+export const selectVisibleTodos = createSelector(
   [getVisibilityFilter, getTodos],
   (visibilityFilter, todos) => {
     switch (visibilityFilter) {
@@ -20,7 +20,7 @@ export const getVisibleTodos = createSelector(
   }
 )
 
-export const getCompletedTodoCount = createSelector(
+export const selectCompletedTodoCount = createSelector(
   [getTodos],
   todos => (
     todos.reduce((count, todo) =>
