@@ -321,16 +321,19 @@ body {
 	border-color: rgba(175, 47, 47, 0.2);
 }
 
-.clear-completed,
-html .clear-completed:active {
-	float: right;
+.footer-tools {
+	float:right;
+}
+
+.footer-btn {
+	margin-left: 10px;
 	position: relative;
 	line-height: 20px;
 	text-decoration: none;
 	cursor: pointer;
 }
 
-.clear-completed:hover {
+.footer-btn:hover {
 	text-decoration: underline;
 }
 

@@ -10,14 +10,17 @@ const Footer = (props) => {
         <strong>{activeCount || 'No'}</strong> {itemWord} left
       </span>
       {renderFilterLinks()}
+      <div className="footer-tools">
       {
         !!completedCount &&
         <button
-          className="clear-completed"
+          className="footer-btn"
           onClick={onClearCompleted}
         >Clear completed</button>
 
       }
+      </div>
+
     </footer>
   )
 }
