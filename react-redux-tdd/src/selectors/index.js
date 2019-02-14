@@ -22,3 +22,5 @@ export const selectCompletedTodoCount = (state) => {
   const todos = selectAllTodos(state)
   return todos.filter(t => t.completed).length
 }
+
+export const selectInputMode = state => state.inputMode
