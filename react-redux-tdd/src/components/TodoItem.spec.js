@@ -19,8 +19,8 @@ describe('TodoItem', () => {
         completeTodo={noop}
       />
     )
-    expect(wrapper.exists('.ax-todo-text-input')).toBeFalsy()
+    expect(wrapper.exists('.ax-todo-input-mode')).toBeFalsy()
     wrapper.find('.ax-todo-label').simulate('doubleclick')
-    expect(wrapper.exists('.ax-todo-text-input')).toBeTruthy()
+    expect(wrapper.exists('.ax-todo-input-mode')).toBeTruthy()
   })
 })

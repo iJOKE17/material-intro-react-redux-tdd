@@ -33,10 +33,14 @@ export default class TodoItem extends Component {
     let element
     if (this.state.editing) {
       element = (
-        <TodoTextInput className='ax-todo-text-input'
-                       text={todo.text}
-                       editing={this.state.editing}
-                       onSave={(text) => this.handleSave(todo.id, text)} />
+        <div className='ax-todo-input-mode'>
+          <TodoTextInput
+            className='ax-todo-text-input'
+            text={todo.text}
+            editing={this.state.editing}
+            onSave={(text) => this.handleSave(todo.id, text)}
+          />
+        </div>
       )
     } else {
       element = (
