@@ -1,8 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import TodoTextInput from './TodoTextInput'
+import { InputModes } from '../reducers/inputMode'
 
-const Header = ({ addTodo }) => (
+const getPlaceHolder = mode => {
+  return mode === InputModes.ADD ? 'What needs to be done?' : 'Search for?'
+}
+
+const Header = ({ addTodo, inputMode }) => (
   <header className="header">
     <TodoTextInput
       newTodo
@@ -11,7 +16,7 @@ const Header = ({ addTodo }) => (
           addTodo(text)
         }
       }}
-      placeholder="What needs to be done?"
+      placeholder={getPlaceHolder(inputMode)}
     />
   </header>
 )

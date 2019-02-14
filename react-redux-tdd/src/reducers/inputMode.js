@@ -5,6 +5,10 @@ export const InputModes = {
   SEARCH: 'Search'
 }
 
+export function toggleInputMode (current) {
+  return current === InputModes.ADD ? InputModes.SEARCH : InputModes.ADD
+}
+
 const inputMode = (state = InputModes.ADD, action) => {
   switch (action.type) {
     case SET_INPUT_MODE:

@@ -3,13 +3,14 @@ import PropTypes from 'prop-types'
 import Footer from './Footer'
 import VisibleTodoList from '../containers/VisibleTodoList'
 import FilterLinks from '../containers/FilterLinks'
+import { toggleInputMode } from '../reducers/inputMode'
 
 const filterLinks = () => (
   <FilterLinks />
 )
 
-const MainSection = ({ todosCount, completedCount, actions }) =>
-  (
+const MainSection = ({ todosCount, completedCount, actions, inputMode }) => {
+  return (
     <section className="main">
       {
         !!todosCount &&
@@ -28,17 +29,21 @@ const MainSection = ({ todosCount, completedCount, actions }) =>
         !!todosCount &&
         <Footer
           completedCount={completedCount}
+          inputMode={inputMode}
           activeCount={todosCount - completedCount}
           onClearCompleted={actions.clearCompleted}
+          onToggleInputMode={() => actions.setInputMode(toggleInputMode(inputMode))}
           renderFilterLinks={filterLinks}
         />
       }
     </section>
   )
+    }
 
 MainSection.propTypes = {
   todosCount: PropTypes.number.isRequired,
   completedCount: PropTypes.number.isRequired,
+  inputMode: PropTypes.string.isRequired,
   actions: PropTypes.object.isRequired
 }
 
