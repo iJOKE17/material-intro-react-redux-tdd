@@ -19,6 +19,20 @@ const initialState = [
     id: 1,
     important: true
   },
+  {
+    text: 'Add React',
+    completed: false,
+    id: 2,
+    completedDate: new Date(),
+    important: true
+  },
+  {
+    text: 'Importent',
+    completed: false,
+    id: 3,
+    completedDate: new Date(),
+    importent: true
+  },
 ]
 
 export default function todos(state = initialState, action) {

@@ -391,3 +391,8 @@ body {
   left: 60px;
   bottom: 2px;
 }
+
+.importent {
+	color: red;
+	font-weight: bold;
+}

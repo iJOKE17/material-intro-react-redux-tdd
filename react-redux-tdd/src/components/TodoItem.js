@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import classnames from 'classnames'
 import TodoTextInput from './TodoTextInput'
+var moment = require('moment')
 
 export default class TodoItem extends Component {
   static propTypes = {
@@ -30,6 +31,7 @@ export default class TodoItem extends Component {
 
   render() {
     const { todo, completeTodo, deleteTodo } = this.props
+    const labelClassname = 'ax-todo-label' + (todo.importent ? ' importent': '');
     let element
     if (this.state.editing) {
       element = (
@@ -49,9 +51,12 @@ export default class TodoItem extends Component {
                  type="checkbox"
                  checked={todo.completed}
                  onChange={() => completeTodo(todo.id)} />
-          <label className='ax-todo-label' onDoubleClick={this.handleDoubleClick}>
+          <label className={labelClassname} onDoubleClick={this.handleDoubleClick}>
             {todo.text}
           </label>
+          <div class="todo-completed-date">
+            {todo.completed ? moment(todo.completedDate).format('d/MM/YYYY') : null }
+          </div>
           <button className="destroy"
                   onClick={() => deleteTodo(todo.id)} />
         </div>
